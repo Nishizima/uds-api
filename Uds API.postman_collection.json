@@ -1,0 +1,94 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Uds API",
+		"_postman_id": "e0e58d3b-da22-3785-0d86-bba259329c8c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/api/v1/pizza",
+			"request": {
+				"url": "http://localhost/api/v1/pizza",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tamanho",
+							"value": "grande",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "sabor",
+							"value": "portuguesa",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "REQ.001 - Montar Pizza\n\nInformar Tamanho e Sabor (por escrito ou por código) no Body do POST\n\nRetorna um Token (JWT) para ser utilizado nas próximas etapas"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/v1/topping",
+			"request": {
+				"url": "localhost/api/v1/topping",
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZWRpZG8iOiJNVEU9IiwicGl6emEiOiJNVEk9IiwiZGF0YSI6eyJkYXRlIjoiMjAxOC0wOC0xOSAyMToxMTowNi4wMDAwMDAiLCJ0aW1lem9uZV90eXBlIjozLCJ0aW1lem9uZSI6IlVUQyJ9fQ.kf2UB0xrnaUCi0nUjDNCaIkCHwT_vUBfZ7A74ItTxgo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "topping[]",
+							"value": "extra bacon",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "topping[]",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "topping[]",
+							"value": "borda recheada",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "REQ.002 - Personalizar Pizza\n\nEnviar o Token gerado em REQ.001 no header da request com a key 'token'\nEnviar personalizações (por escrito ou por código) em um array no body do POST\n\nRetorna o mesmo token enviado"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/v1/pedido",
+			"request": {
+				"url": "localhost/api/v1/pedido",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZWRpZG8iOiJNVEU9IiwicGl6emEiOiJNVEk9IiwiZGF0YSI6eyJkYXRlIjoiMjAxOC0wOC0xOSAyMToxMTowNi4wMDAwMDAiLCJ0aW1lem9uZV90eXBlIjozLCJ0aW1lem9uZSI6IlVUQyJ9fQ.kf2UB0xrnaUCi0nUjDNCaIkCHwT_vUBfZ7A74ItTxgo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "REQ.003 - Montar Pedido\n\nEnviar o token via Header da Request com a key 'token'\n\nRetorna o resumo do pedido"
+			},
+			"response": []
+		}
+	]
+}
