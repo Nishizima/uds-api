@@ -16,7 +16,7 @@ class PedidoController extends Controller
         $token = $request->header('token');
 
         try{
-            $decoded = JWT::decode($token, getenv("APP_TOKEN_KEY"), array('HS256'));
+            $decoded = JWT::decode($token, env("APP_TOKEN_KEY",'nishizima@2018'), array('HS256'));
         }
         catch (Exception $e)
         {

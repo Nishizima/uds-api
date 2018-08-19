@@ -73,7 +73,7 @@ class PizzaController extends Controller
             'data' => $pedido->created_at
         );
 
-        $jwt = JWT::encode($token, getenv("APP_TOKEN_KEY"));
+        $jwt = JWT::encode($token, env("APP_TOKEN_KEY",'nishizima@2018'));
 
 
 
